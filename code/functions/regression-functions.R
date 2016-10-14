@@ -20,15 +20,20 @@ total_sum_squares <- function(lm_model) {
 
 # R Squared: this function takes in the lm object, and output R squared
 r_squared <- function(lm_model) {
-    
+    rss <- residual_sum_squares(lm_model)
+    tss <- total_sum_squares(lm_model)
+    (tss - rss) / tss
 }
 
 # F statistics: this function takes in the lm object, and output F statistics
 f_statistic <- function(lm_model) {
-    
+    rss <- residual_sum_squares(lm_model)
+    tss <- total_sum_squares(lm_model)
+    ((tss - rss) / 4) / (rss / 196)
 }
 
 # Residual Standard Error: this function takes in the lm object, and output Residual Standard Error
 residual_std_error <- function(lm_model) {
-    
+    rss <- residual_sum_squares(lm_model)
+    sqrt(rss / 4)
 }
