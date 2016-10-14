@@ -1,0 +1,10 @@
+---
+title: "report"
+author: "Lingjie Qiao"
+date: "10/14/2016"
+output: pdf_document
+---
+
+```{r}
+render("report.Rmd", pdf_document())
+```
