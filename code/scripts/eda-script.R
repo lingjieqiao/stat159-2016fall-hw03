@@ -53,19 +53,24 @@ hist(advertising$Sales, main = "Histogram of Sales", xlab = "Sales data")
 dev.off()
 
 # Create pairwise scatterplots
+# Scatterplot Matrix
+png('../../images/scatterplot-matrix.png')
+scatterplotMatrix(advertising)
+dev.off()
+
 # Scatterplot between tv and sales
 png('../../images/scatterplot-tv-sales.png')
-plot(advertising$TV, advertising$Sales, main = "Pairwise Scatterplot between TV and Sales", xlab = "TV", ylab = "Sales")
+plot(advertising$TV, advertising$Sales, main = "Scatterplot between TV and Sales", xlab = "TV", ylab = "Sales")
 dev.off()
 
 # Scatterplot between radio and sales
 png('../../images/scatterplot-radio-sales.png')
-plot(advertising$Radio, advertising$Sales, main = "Pairwise Scatterplot between Radio and Sales", xlab = "Radio", ylab = "Sales")
+plot(advertising$Radio, advertising$Sales, main = "Scatterplot between Radio and Sales", xlab = "Radio", ylab = "Sales")
 dev.off()
 
 # Scatterplot between tv and sales
 png('../../images/scatterplot-newspaper-sales.png')
-plot(advertising$Newspaper, advertising$Sales, main = "Pairwise Scatterplot between Newspaper and Sales", xlab = "Newspaper", ylab = "Sales")
+plot(advertising$Newspaper, advertising$Sales, main = "Scatterplot between Newspaper and Sales", xlab = "Newspaper", ylab = "Sales")
 dev.off()
 
 # Matrix of Correlations
