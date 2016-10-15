@@ -93,14 +93,17 @@ Table 5 indicates correlation matrix for TV, radio, newspaper, and sales for the
 
 #### Table 6: Regression Quality Indices
 
-```{r}
-#source('../code/functions/regression-functions.R')
-#RSE = residual_std_error(lm_ad)
-#R_square = r_squared(lm_ad)
-#f_statistic = f_statistic(lm_ad)
+```{r, results='asis', echo=FALSE, message=FALSE}
+source('../code/functions/regression-functions.R')
+RSE = residual_std_error(lm_ad)
+R_square = r_squared(lm_ad)
+f_statistic = f_statistic(lm_ad)
 
-#df = data.frame(Quantity= c("Residual Standard Error", "R-squared", "F-statistic"), Value = c(RSE, R_square, f_statistic))
-#print(xtable(df, caption = 'Regression Quality Indices'), comment = FALSE, include.rownames=FALSE, caption.placement = 'top')
+df = data.frame(Quantity= c("Residual Standard Error", "R-squared",
+                            "F-statistic"), Value = c(RSE, R_square,
+                                                      f_statistic))
+print(xtable(df, caption = 'Regression Quality Indices'), 
+      comment = FALSE, caption.placement = 'top')
 ```
 
 
