@@ -1,4 +1,5 @@
 
+
 # Import Data
 advertising <- read.csv("../../data/Advertising.csv", header = TRUE)
 advertising <- advertising[,2:5]
@@ -35,7 +36,7 @@ print("Summary Statistics of Newspaper")
 summary(advertising$Newspaper)
 sink()
 
-# Histogram of Radio
+# Histogram of Newspaper
 png('../../images/histogram-newspaper.png')
 hist(advertising$Newspaper, main = "Histogram of Newspaper", xlab = "Newspaper data")
 dev.off()
@@ -60,7 +61,7 @@ dev.off()
 
 # Scatterplot between tv and sales
 png('../../images/scatterplot-tv-sales.png')
-plot(advertising$TV, advertising$Sales, main = "Scatterplot between TV and Sales", xlab = "TV", ylab = "Sales")
+plot(advertising$TV, advertising$Sales, main = "Scatterplot between TV and Sales", xlab = "TV", ylab = "Sales") 
 dev.off()
 
 # Scatterplot between radio and sales

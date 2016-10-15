@@ -5,7 +5,7 @@ source("../functions/regression-functions.R")
 context("Test for residual sum of squares") 
 
 test_that("residual sum of squares", {
-  advertising <- read.csv("../data/Advertising.csv", header = TRUE)
+  advertising <- read.csv("../../data/Advertising.csv", header = TRUE)
   x <- lm(Sales ~ TV + Radio + Newspaper, data = advertising)
 
   expect_equal(residual_sum_squares(x), x$sigma)

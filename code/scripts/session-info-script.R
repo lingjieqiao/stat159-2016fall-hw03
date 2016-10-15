@@ -1,4 +1,5 @@
 # Library calls to all packages
+library(base)
 library(car)
 library(datasets)
 library(graphics)

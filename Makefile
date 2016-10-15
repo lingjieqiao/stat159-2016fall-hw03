@@ -10,7 +10,7 @@ R = report
 all: eda regression report
 
 data: 
-	curl -0 http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv > $(D)/Advertising.csv
+	curl -o $(D)/Advertising.csv "http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv"
 
 tests: $(C)/test-that.R
 	Rscript $(C)/test-that.R
@@ -21,8 +21,8 @@ eda: $(S)/eda-script.R
 regression: $(S)/regression-script.R
 	Rscript $(S)/regression-script.R
 
-report: $(R)/report.R
-	Rscript $(R)report.R
+report: $(R)/report.Rmd
+	cd $(R); Rscript -e 'library(rmarkdown); render("report.Rmd")'
 
 clean: 
 	rm -f $(R)/report.pdf
