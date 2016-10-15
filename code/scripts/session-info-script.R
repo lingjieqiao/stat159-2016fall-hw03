@@ -10,7 +10,7 @@ library(testthat)
 library(utils)
 
 # Save the output of sessionInfo
-sink("../../session-info.txt")
+sink("session-info.txt")
 print("Session Info")
 sessionInfo(package = NULL)
 sink()
