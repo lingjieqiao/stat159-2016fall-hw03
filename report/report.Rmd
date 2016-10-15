@@ -1,5 +1,5 @@
 ---
-title: "report"
+title: "Report - Multiple Linear Regression"
 author: "Lingjie Qiao"
 date: "10/14/2016"
 output: pdf_document
@@ -29,6 +29,7 @@ With the least square estimators, we compute the regression coefficients:
 Table 1: Information about Regression Coefficients
 
 ```{r, results='asis', echo=FALSE, message=FALSE}
+# Load data into report
 library(xtable)
 library(knitr)
 load("../data/regression.RData")

@@ -1,5 +1,5 @@
 # Import data
-advertising <- read.csv("../../data/Advertising.csv", header = TRUE)
+advertising <- read.csv("data/Advertising.csv", header = TRUE)
 
 # Fit multiple linear regression model
 lm_model <- lm(Sales ~ TV + Radio + Newspaper, data = advertising)
