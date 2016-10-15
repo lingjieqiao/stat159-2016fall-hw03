@@ -74,7 +74,9 @@ print(xtable(summary$coefficient, caption = 'Multiple Linear Regression Coeffici
 
 For the Advertising data, least squares coefficient estimates of the multiple linear regression of number of units sold on radio, TV, and newspaper advertising budgets.
 
-Some reflections we can make on this table is looking at the estimates. It seems that `TV` and `Radio` both have positive impact on the sales, while `Newspaper` has negative impact. When we compare TV and Radio, since 0.05 < 0.19, `Radio` seems to have a higher influence on sales. Therefore, we can reach the conclusion that not all predictors help to explain the response. When `Radio` may potentially indicate the usefulness and responsiveness of costumers on sales, the other two variables do not show significant impact.
+Some reflections we can make on this table is looking at the estimates. It seems that `TV` and `Radio` both have positive impact on the sales, while `Newspaper` has negative impact. When we compare TV and Radio, since 0.05 < 0.19, `Radio` seems to have a higher influence on sales. This gives us a basic understanding of the association between sales with media variables - if there is a positive or negative impact.
+
+Through looking at p value, we see that `TV`, `Radio` and `Newspaper` all  have very small p-value (near 0), which is supposed to reject the null hypothesis. Since the null hypothesis states that the coefficient is 0, it means that all three variables actualy have an impact on the sales data. Therefore, we can reach the conclusion that all predictors to some extent help to explain the response, indicateing the usefulness and responsiveness of costumers on sales.
 
 From my perspective, the linear model to some extent does not fit the data well. When we take a closer look at the individual scatterplots, we could hardly see strong linear relationship as most of the points, esepcially in newspaper, are just randomly spreading out. Therefore, even though we fit correctly the linear model, the predictions will not be as accurate as we imagine it to be.
 
