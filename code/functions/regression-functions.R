@@ -29,11 +29,12 @@ r_squared <- function(lm_model) {
 f_statistic <- function(lm_model) {
     rss <- residual_sum_squares(lm_model)
     tss <- total_sum_squares(lm_model)
-    ((tss - rss) / 4) / (rss / 196)
+    ((tss - rss) / 3) / (rss / 196)
 }
 
 # Residual Standard Error: this function takes in the lm object, and output Residual Standard Error
 residual_std_error <- function(lm_model) {
     rss <- residual_sum_squares(lm_model)
-    sqrt(rss / 4)
+    sqrt(rss / 196)
 }
+
