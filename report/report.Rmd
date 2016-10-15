@@ -24,34 +24,74 @@ Mathematically, $\beta_0$ represents the intercept and $\beta_1$ to $\beta_3$ re
 With this linear model, we estimate the coefficients by minimizing the least squares criterion, which is minimizing the sum of squared errors.
 
 ## Results
-With the least square estimators, we compute the regression coefficients:
 
-Table 1: Information about Regression Coefficients
+First, for the sake of comparison, we want to first put out the coefficients estimates of simple regression models: `Sales` on `TV`, `Sales` on `Radio`, and `Sales` on `Newspaper`. 
+
+#### Table 1: Simple Linear Regression on TV and Sales
 
 ```{r, results='asis', echo=FALSE, message=FALSE}
 # Load data into report
 library(xtable)
-library(knitr)
-load("../data/regression.RData")
-load("../data/correlation-matrix.RData")
-
-print(xtable(summary$coefficients, caption = 'Regression Coefficients', comment = FALSE, include.rownames=FALSE, caption.placement = 'top'))
+advertising = read.csv("../data/Advertising.csv", header = TRUE)
+simple_lm <- lm(Sales ~ TV, data = advertising)
+simple_summary <- summary(simple_lm)
+print(xtable(simple_summary$coefficient, caption = 'Simple Linear Regression on TV and Sales'), comment = FALSE, caption.placement = 'top')
+cat("\n")
 ```
 
-Table 1: For the Advertising data, least squares coefficient estimates of the multiple linear regression of number of units sold on radio, TV, and newspaper advertising budgets.
-
-
-More information about the least squares model is given in the table below:
-
-Table 2: Correlation Matrix
+#### Table 2: Simple Linear Regression on Radio and Sales
 
 ```{r, results='asis', echo=FALSE, message=FALSE}
-print(xtable(cor_m, caption = 'Correlations Matrix', comment = FALSE, include.rownames=FALSE, caption.placement = 'top'))
+simple_lm <- lm(Sales ~ Radio, data = advertising)
+simple_summary <- summary(simple_lm)
+print(xtable(simple_summary$coefficient, caption = 'Simple Linear Regression on Radio and Sales'), comment = FALSE, caption.placement = 'top')
+cat("\n")
 ```
 
-Table 2 indicates correlation matrix for TV, radio, newspaper, and sales for the Advertising data.
 
-Table 3: Regression Quality Indices
+#### Table 3: Simple Linear Regression on Newspaper and Sales
+
+```{r, results='asis', echo=FALSE, message=FALSE}
+simple_lm <- lm(Sales ~ Newspaper, data = advertising)
+simple_summary <- summary(simple_lm)
+print(xtable(simple_summary$coefficient, caption = 'Simple Linear Regression on Newspaper and Sales'), comment = FALSE, caption.placement = 'top')
+cat("\n")
+```
+
+
+Now, with the least square estimators, we compute the multiple linear regression coefficients:
+
+
+
+#### Table 4: Information about Regression Coefficients
+
+```{r, results='asis', echo=FALSE, message=FALSE}
+# Load data into report
+load("../data/regression.RData")
+load("../data/correlation-matrix.RData")
+print(xtable(summary$coefficient, caption = 'Multiple Linear Regression Coefficients'), comment = FALSE, caption.placement = 'top')
+```
+
+For the Advertising data, least squares coefficient estimates of the multiple linear regression of number of units sold on radio, TV, and newspaper advertising budgets.
+
+Some reflections we can make on this table is looking at the estimates. It seems that `TV` and `Radio` both have positive impact on the sales, while `Newspaper` has negative impact. When we compare TV and Radio, since 0.05 < 0.19, `Radio` seems to have a higher influence on sales. Therefore, we can reach the conclusion that not all predictors help to explain the response. When `Radio` may potentially indicate the usefulness and responsiveness of costumers on sales, the other two variables do not show significant impact.
+
+From my perspective, the linear model to some extent does not fit the data well. When we take a closer look at the individual scatterplots, we could hardly see strong linear relationship as most of the points, esepcially in newspaper, are just randomly spreading out. Therefore, even though we fit correctly the linear model, the predictions will not be as accurate as we imagine it to be.
+
+
+**More information about the least squares model is given in the table below:**
+
+#### Table 5: Correlation Matrix
+
+```{r, results='asis', echo=FALSE, message=FALSE}
+print(xtable(cor_m, caption = 'Correlations Matrix'), comment = FALSE, caption.placement = 'top')
+```
+
+Table 5 indicates correlation matrix for TV, radio, newspaper, and sales for the Advertising data.
+
+
+
+#### Table 6: Regression Quality Indices
 
 ```{r}
 #source('../code/functions/regression-functions.R')
@@ -67,13 +107,10 @@ Table 3: Regression Quality Indices
 Here are some sample images relating Advertising dataset
 
 ![Figure 1: Scatterplot Matrix](../images/scatterplot-matrix.png)
-Figure 1: Scatterplot Matrix
 
 ![Figure 2: Normal Q-Q plot](../images/normal-qq-plot.png)
-Figure 2: Normal Q-Q plot
 
 ![Figure 3: Residual plot](../images/residual-plot.png)
-Figure 2: Residual plot
 
 
 ## Conclusions
